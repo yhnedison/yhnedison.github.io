@@ -32,9 +32,9 @@
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }}">
       {% if page.keywords %}
-      {% assign keywords = page.keywords %}
+      {% assign keywords = page.keywords[0] %}
       {% else %}
-      {% assign keywords = site.keywords %}
+      {% assign keywords = site.keywords[0] %}
       {% endif %}
     <meta name="keywords" content="{{ keywords | strip_html | strip_newlines}}">
     <meta name="og:keywords" content="{{ keywords | strip_html | strip_newlines}}">

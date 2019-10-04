@@ -1,7 +1,7 @@
+--- 
+layout: default 
 ---
-layout: default
----
-<section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
+<section class="collection-head small " data-pattern-id="{{ page.title | truncate: 15, ''}}">
     <div class="container">
         <div class="columns">
             <div class="column three-fourths">
@@ -15,7 +15,7 @@ layout: default
 <!-- / .banner -->
 <section class="container content">
     <div class="columns">
-        <div class="column three-fourths" >
+        <div class="column three-fourths">
             <article class="article-content markdown-body">
                 {{ content }}
             </article>
@@ -24,8 +24,7 @@ layout: default
             </div>
         </div>
         <div class="column one-fourth">
-            {% include sidebar-search.html %}
-            {% include sidebar-categories-nav.html %}
+            {% include sidebar-search.html %} {% include sidebar-categories-nav.html %}
         </div>
     </div>
 </section>

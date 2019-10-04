@@ -8,8 +8,6 @@ menu:
 permalink: /about/
 ---
 
-A web developer
-
 ## Connect
 
 {% for website in site.data.social %}
@@ -19,7 +17,7 @@ A web developer
 ## In short
 
 {% for category in site.data.skills %}
-### {{ category.name }}
+#### {{ category.name }}
 <div class="btn-inline">
 {% for keyword in category.keywords %}
 <button class="btn btn-outline" type="button">{{ keyword }}</button>
