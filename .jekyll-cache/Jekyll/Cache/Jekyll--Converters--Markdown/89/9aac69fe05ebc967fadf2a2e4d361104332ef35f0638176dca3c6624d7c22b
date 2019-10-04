@@ -1,0 +1,77 @@
+I"G<h2 id="快捷键">快捷键</h2>
+
+<p>C –&gt; Ctrl</p>
+
+<p>S –&gt; Shift</p>
+
+<p>M –&gt; Alt</p>
+
+<p>Cmd –&gt; Command</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">功能</th>
+      <th style="text-align: left">Windows</th>
+      <th style="text-align: left">Mac OS X</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">打开文件</td>
+      <td style="text-align: left">C-o</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">打开文件夹</td>
+      <td style="text-align: left">C-k C-o</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">关闭文件夹</td>
+      <td style="text-align: left">C-k f</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">命令面板</td>
+      <td style="text-align: left">C-S-p</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">资源管理器</td>
+      <td style="text-align: left">C-S-e</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">搜索</td>
+      <td style="text-align: left">C-S-f</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Git</td>
+      <td style="text-align: left">C-S-g</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">调试</td>
+      <td style="text-align: left">C-S-d</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">插件</td>
+      <td style="text-align: left">C-S-x</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Markdown 侧边预览</td>
+      <td style="text-align: left">C-k v</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Markdown 预览</td>
+      <td style="text-align: left">C-S-v</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+:ET

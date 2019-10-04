@@ -1,0 +1,63 @@
+I"�<h3 id="requests">requests</h3>
+
+<p>优雅简单的 HTTP 模块。</p>
+
+<h3 id="beautifulsoup">BeautifulSoup</h3>
+
+<p>很好用的 HTML/XML 解析器。</p>
+
+<h3 id="json">json</h3>
+
+<p>JSON 编码解码器。</p>
+
+<p>应用举例：</p>
+
+<ul>
+  <li>
+    <p>格式化 JSON 文件</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> json.tool src.json <span class="o">&gt;</span> dst.json
+</code></pre></div>    </div>
+
+    <p>在 Vim 里格式化 JSON：</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%!python <span class="nt">-m</span> json.tool
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="cgihttpserver">CGIHTTPServer</h3>
+
+<p>简单实用的 HTTP 服务器。</p>
+
+<p>应用举例：</p>
+
+<ul>
+  <li>
+    <p>运行一个简易的 HTTP 服务器</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> CGIHTTPServer 80
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="base64">base64</h3>
+
+<p>方便地进行 base64 编解码的模块。</p>
+
+<p>应用举例：</p>
+
+<ul>
+  <li>
+    <p>解码 base64</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span><span class="nv">aGVsbG93b3JsZA</span><span class="o">==</span> | python <span class="nt">-m</span> <span class="nb">base64</span> <span class="nt">-d</span>
+</code></pre></div>    </div>
+
+    <p>则能看到输出</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helloworld
+</code></pre></div>    </div>
+  </li>
+</ul>
+:ET

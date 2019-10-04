@@ -1,0 +1,64 @@
+I"�<p>快捷键基本与 <a href="./android-studio/">Android Studio</a> 一致，这里重点记录解决遇到过的问题。</p>
+
+<h2 id="qa">Q&amp;A</h2>
+
+<h3 id="解决导入-eclipse-maven-工程后无法读取-xml-文件的问题">解决导入 Eclipse Maven 工程后无法读取 .xml 文件的问题</h3>
+
+<p>IDEA 与 Eclipse 配置文件目录的方式不同，可以将文件夹标记为 Sources、Resources 和 tests 等，而 src/main/java 默认被标记为 Sources，src/main/resources 才默认被标记为 Resources，编译时自动复制。</p>
+
+<p>这样放在 src/main/java 目录下的文件与子文件夹均为 Sources，只将编译生成的 .class 文件复制到编译目录，在 Eclipse Maven 工程里放在 src/main/java 文件夹里的 xml、props 和 properties 文件就不会被拷贝到编译文件夹，导致执行时找不到这些文件，报类似下面这样的错误：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [spring-demo.xml]; nested exception is java.io.FileNotFoundException: class path resource [spring-demo.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:343)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:303)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:216)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:187)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:251)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:540)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:454)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:83)
+	at org.mazhuang.demo.protocol.db.DemoContext.init(DemoContext.java:22)
+	at org.mazhuang.demo.protocol.DemoServer.start(DemoServer.java:40)
+	at org.mazhuang.demo.DemoSrv.main(DemoSrv.java:17)
+Caused by: java.io.FileNotFoundException: class path resource [spring-demo.xml] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:329)
+	... 15 more
+</code></pre></div></div>
+
+<p><strong>解决方案：</strong></p>
+
+<p>可以通过在 pom.xml 文件里添加 resources 配置来指定将哪些文件作为 resources 包含：</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;resources&gt;</span>
+        <span class="nt">&lt;resource&gt;</span>
+            <span class="nt">&lt;directory&gt;</span>${basedir}/src/main/java<span class="nt">&lt;/directory&gt;</span>
+            <span class="nt">&lt;includes&gt;</span>
+                <span class="nt">&lt;include&gt;</span>**/*.props<span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+            <span class="nt">&lt;/includes&gt;</span>
+        <span class="nt">&lt;/resource&gt;</span>
+    <span class="nt">&lt;/resources&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></div>
+
+<h3 id="如何导出-jar-包">如何导出 jar 包</h3>
+
+<p>File -&gt; Project Structure -&gt; Artifacts -&gt; Click green plus sign -&gt; Jav -&gt; From modules with dependencies</p>
+
+<p>Build -&gt; Build Artifacts</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><a href="http://www.cnblogs.com/zqr99/p/7642712.html">解决IntelliJ IDEA无法读取配置*.properties文件的问题</a></li>
+  <li><a href="https://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly">How to build jars from IntelliJ properly?</a></li>
+</ul>
+
+:ET
