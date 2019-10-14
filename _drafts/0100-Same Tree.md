@@ -1,0 +1,81 @@
+---
+layout: post
+category: Leetcode
+description: 
+keywords: ['Tree', 'Depth-first Search', 'Leetcode', 'Easy']
+---
+### [100. Same Tree](https://leetcode.com/problems/same-tree)
+
+#### Tags: 'Tree', 'Depth-first Search'
+
+<div class="content__u3I1 question-content__JfgR"><div><p>Given two binary trees, write a function to check if they are the same or not.</p>
+<p>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong>     1         1
+          / \       / \
+         2   3     2   3
+
+        [1,2,3],   [1,2,3]
+
+<strong>Output:</strong> true
+</pre>
+<p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong>     1         1
+          /           \
+         2             2
+
+        [1,2],     [1,null,2]
+
+<strong>Output:</strong> false
+</pre>
+<p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong>     1         1
+          / \       / \
+         2   1     1   2
+
+        [1,2,1],   [1,1,2]
+
+<strong>Output:</strong> false
+</pre>
+</div></div>
+
+### Solution
+```java
+// use two stack to traverse simultaneously
+// O(n) O(n) 5% 100%
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
+        stack1.push(p);
+        stack2.push(q);
+        while (!stack1.isEmpty() && !stack2.isEmpty()) {
+            TreeNode node1 = stack1.pop();
+            TreeNode node2 = stack2.pop();
+            if (node1 != null && node2 != null) {
+                if (node1.val != node2.val) return false;
+                stack1.push(node1.left);
+                stack1.push(node1.right);
+                stack2.push(node2.left);
+                stack2.push(node2.right);
+            } else if (node1 == null && node2 == null) {
+                continue;
+            } else { // one of the two is null
+                return false;
+            }
+        }
+        return stack1.size() == stack2.size();   
+    }
+}
+
+// recursive
+// O(n) O(1) 100% 100%
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true; // End case, both null, also handle case with two empty tree
+        if (p == null || q == null) return false; // End case, Unequal nullity
+        if (p.val != q.val) return false; // Both not null, but unequal value
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+}
+```
