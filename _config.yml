@@ -6,11 +6,11 @@ url: https://alex8080.com
 date_format: "ordinal"
 title: Alex Blog
 subtitle: "Hi"
-description: "recoding my life"
+description: ""
 keywords: personal blog
 timezone: 
 encoding: "utf-8"
-side_bar_repo_limit: 5
+side_bar_repo_limit: 2
 
 # ---------------- #
 #      Author      #
