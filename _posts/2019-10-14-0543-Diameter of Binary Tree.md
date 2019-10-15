@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 543. Diameter of Binary Tree
 category: Leetcode
 description: 
 keywords: ['Tree', 'Leetcode', 'Easy']

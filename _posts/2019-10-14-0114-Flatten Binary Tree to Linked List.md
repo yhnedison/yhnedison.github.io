@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 114. Flatten Binary Tree to Linked List
 category: Leetcode
 description: 
 keywords: ['Tree', 'Depth-first Search', 'Leetcode', 'Medium']

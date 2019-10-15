@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 104. Maximum Depth of Binary Tree
 category: Leetcode
 description: 
 keywords: ['Tree', 'Depth-first Search', 'Leetcode', 'Easy']

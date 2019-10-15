@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 144. Binary Tree Preorder Traversal
 category: Leetcode
 description: 
 keywords: ['Stack', 'Tree', 'Leetcode', 'Medium']

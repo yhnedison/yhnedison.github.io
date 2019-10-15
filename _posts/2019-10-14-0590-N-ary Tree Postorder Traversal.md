@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 590. N-ary Tree Postorder Traversal
 category: Leetcode
 description: 
 keywords: ['Tree', 'Leetcode', 'Easy']

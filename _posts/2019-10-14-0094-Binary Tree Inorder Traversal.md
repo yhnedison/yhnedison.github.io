@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 94. Binary Tree Inorder Traversal
 category: Leetcode
 description: 
 keywords: ['Hash Table', 'Stack', 'Tree', 'Leetcode', 'Medium']

@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 429. N-ary Tree Level Order Traversal
 category: Leetcode
 description: 
 keywords: ['Tree', 'Breadth-first Search', 'Leetcode', 'Easy']

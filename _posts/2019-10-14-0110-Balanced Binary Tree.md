@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 110. Balanced Binary Tree
 category: Leetcode
 description: 
 keywords: ['Tree', 'Depth-first Search', 'Leetcode', 'Easy']

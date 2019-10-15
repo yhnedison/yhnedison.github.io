@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 1104. Path In Zigzag Labelled Binary Tree
 category: Leetcode
 description: 
 keywords: ['Math', 'Tree', 'Leetcode', 'Medium']

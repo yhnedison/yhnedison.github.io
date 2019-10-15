@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 814. Binary Tree Pruning
 category: Leetcode
 description: 
 keywords: ['Tree', 'Leetcode', 'Medium']
