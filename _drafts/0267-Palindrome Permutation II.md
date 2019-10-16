@@ -1,0 +1,21 @@
+---
+layout: post
+title: 267. Palindrome Permutation II
+category: [Leetcode]
+description: 
+keywords: ['Backtracking', 'Leetcode', 'Medium']
+---
+### [267. Palindrome Permutation II](https://leetcode.com/problems/palindrome-permutation-ii)
+
+#### Tags: 'Backtracking'
+
+<div class="content__u3I1 question-content__JfgR"><div><p>Given a string <code>s</code>, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> <code>"aabb"</code>
+<strong>Output:</strong> <code>["abba", "baab"]</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> <code>"abc"</code>
+<strong>Output:</strong> <code>[]</code></pre>
+</div></div>
+
+### Solution

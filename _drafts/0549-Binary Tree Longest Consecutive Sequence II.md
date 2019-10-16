@@ -1,0 +1,35 @@
+---
+layout: post
+title: 549. Binary Tree Longest Consecutive Sequence II
+category: [Leetcode]
+description: 
+keywords: ['Tree', 'Leetcode', 'Medium']
+---
+### [549. Binary Tree Longest Consecutive Sequence II](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence-ii)
+
+#### Tags: 'Tree'
+
+<div class="content__u3I1 question-content__JfgR"><div><p>Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree.</p>
+<p>Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both considered valid, but the path [1,2,4,3] is not valid. On the other hand, the path can be in the child-Parent-child order, where not necessarily be parent-child order.</p>
+<p><b>Example 1:</b></p>
+<pre><b>Input:</b>
+        1
+       / \
+      2   3
+<b>Output:</b> 2
+<b>Explanation:</b> The longest consecutive path is [1, 2] or [2, 1].
+</pre>
+<p> </p>
+<p><b>Example 2:</b></p>
+<pre><b>Input:</b>
+        2
+       / \
+      1   3
+<b>Output:</b> 3
+<b>Explanation:</b> The longest consecutive path is [1, 2, 3] or [3, 2, 1].
+</pre>
+<p> </p>
+<p><b>Note:</b> All the values of tree nodes are in the range of [-1e7, 1e7].</p>
+</div></div>
+
+### Solution
