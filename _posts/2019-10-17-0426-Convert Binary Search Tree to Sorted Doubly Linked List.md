@@ -31,3 +31,68 @@ keywords: ['Linked List', 'Divide and Conquer', 'Tree', 'Leetcode', 'Medium']
 </div></div>
 
 ### Solution
+Iterative Inorder Traversal.
+- keep connecting the last node and curr node.
+- then connect the first node and last node.
+```java
+/*
+24% 6%
+*/
+class Solution {
+    public Node treeToDoublyList(Node root) {
+        if (root == null) return null;
+        
+        Node first = null, last = null, curr = root;
+        
+        Deque<Node> stack = new ArrayDeque<>();
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            
+            // save first node
+            if (first == null) first = curr;
+            // connect last(previous node) if not null
+            if (last != null) {
+                last.right = curr;
+                curr.left = last;
+            }
+            
+            last = curr;
+            curr = curr.right;
+        }
+        
+        // connect head and tail
+        first.left = last;
+        last.right = first;
+        return first;
+    }
+}
+```
+
+Recursive Inorder Traversal
+- also pass prev node to avoid global variable
+- Harder to understand. Draw a simple tree to help understanding
+```java
+class Solution {
+    public Node treeToDoublyList(Node root) {
+        if (root == null) return null;
+        Node dummy = new Node(0, null, null), prev = dummy;
+        prev = inorder(root, prev);
+        prev.right = dummy.right;
+        dummy.right.left = prev;
+        return dummy.right;
+    }
+    
+    private Node inorder(Node node, Node prev) {
+        if (node == null) return prev;
+        prev = inorder(node.left, prev);
+        prev.right = node;
+        node.left = prev;
+        prev = inorder(node.right, node); // now pass node as the prev
+        return prev;
+    }
+}
+```
