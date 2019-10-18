@@ -24,3 +24,66 @@ keywords: ['Linked List', 'Leetcode', 'Medium']
 </div></div>
 
 ### Solution
+1. There are many EDGE cases (1, 1-1, 3-4-1). Mind the DETAILS
+    * Time O(n) One pass O(1) Constant space 100% 10%
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val,Node _next) {
+        val = _val;
+        next = _next;
+    }
+};
+*/
+class Solution {
+    public Node insert(Node head, int insertVal) {
+        boolean inserted = false;
+        if (head == null) {
+            Node n = new Node(insertVal, null);
+            n.next = n;
+            return n;
+        }
+        
+        Node curr = head.next;
+        Node max = head, min = head;
+        
+        while (curr != head) {
+            if (curr.val >= max.val) max = curr;
+            if (curr.val <= min.val) min = curr;
+            
+            //
+            if (curr.val <= insertVal && curr.next.val >= insertVal) {
+                Node temp = curr.next;
+                curr.next = new Node(insertVal, null);
+                curr.next.next = temp;
+                inserted = true;
+                break;
+            }
+            
+            curr = curr.next;
+        }
+        
+        //finally check head and head.next
+        if (!inserted && curr.val <= insertVal && curr.next.val >= insertVal) {
+            Node temp = curr.next;
+            curr.next = new Node(insertVal, null);
+            curr.next.next = temp;
+            inserted = true;
+        }
+        
+        // If out of range, insert after max
+        if (!inserted && (insertVal >= max.val || insertVal <= min.val)) {
+            Node temp = max.next;
+            max.next = new Node(insertVal, null);
+            max.next.next = temp;
+        }
+        return head;
+    }
+}
+```

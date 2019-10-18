@@ -42,3 +42,39 @@ keywords: ['Linked List', 'Two Pointers', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+1. Using Hashtable. O(n) time O(n) space.
+2. Two pointers
+```java
+// 100% 84%
+public boolean hasCycle(ListNode head) {
+    if (head == null || head.next == null) {
+        return false; // deal with corner case FIRST
+    }
+    ListNode slow = head, fast = head.next;
+    while (slow != fast) {
+        if (fast == null || fast.next == null) {
+            return false;
+        }
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return true;
+} 
+
+// Reverse condition, same performance
+public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false; // deal with corner case FIRST
+        }
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return false;
+    }
+
+```
