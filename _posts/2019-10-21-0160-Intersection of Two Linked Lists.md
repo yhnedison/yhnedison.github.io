@@ -44,4 +44,40 @@ keywords: ['Linked List', 'Leetcode', 'Easy']
 </ul>
 </div></div>
 
-### Solution
+### Solution 1
+Find length first, make two pointer at same position, then traverse at the same time.
+```java
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    if (headA == null || headB == null) return null;
+    int l = length(headA);
+    int m = length(headB);
+    while (l > m) {
+        headA = headA.next;
+        l--;
+    }
+    while (m > l) {
+        headB = headB.next;
+        m--;
+    }
+    // now A and B are at same position
+    while (headA != null && headB != null) {
+        if (headA == headB) return headA;
+        headA = headA.next;
+        headB = headB.next;
+    }
+    
+    return null;
+    
+}
+
+private int length(ListNode node) {
+    if (node == null) return 0;
+    
+    int n = 0;
+    while (node != null) {
+        n = n + 1;
+        node = node.next;
+    }
+    return n;
+}
+```

@@ -20,4 +20,21 @@ keywords: ['Linked List', 'Leetcode', 'Easy']
 </pre>
 </div></div>
 
-### Solution
+### Solution 
+O(n) time O(1) space 28% 96%
+```java
+public ListNode deleteDuplicates(ListNode head) {
+    if (head == null || head.next == null) return head;
+    
+    ListNode curr = head;
+    while (curr != null) {
+        ListNode after = curr.next;
+        while (after != null && after.val == curr.val) {
+            after = after.next;
+        }
+        curr.next = after;
+        curr = curr.next;
+    }
+    return head;
+}
+```

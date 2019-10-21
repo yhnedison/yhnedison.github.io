@@ -17,3 +17,24 @@ keywords: ['Linked List', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+Mind corner cases.
+遇事不决画个图
+```java
+public ListNode removeElements(ListNode head, int val) {
+    if (head == null) return null;
+    ListNode dummy = new ListNode(-1);
+    dummy.next = head;
+    
+    ListNode curr = head, prev = dummy;
+    while (curr != null) {
+        if (curr.val == val) {
+            prev.next = curr.next;
+            curr = curr.next;
+        } else {
+            prev = prev.next;
+            curr = curr.next;
+        }
+    }
+    return dummy.next;
+}
+```

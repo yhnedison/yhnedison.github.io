@@ -26,4 +26,33 @@ keywords: ['Linked List', 'Leetcode', 'Medium']
 </ul>
 </div></div>
 
-### Solution
+### Solution 1
+Common error for Linked List problems(memory limit exceeded):
+**After rearrange nodes, remember to end the list with `NULL`**
+O(n) time O(1) space 100% 100%
+```java
+public ListNode oddEvenList(ListNode head) {
+    if (head == null || head.next == null) return head;
+    
+    ListNode d1 = new ListNode(-1);
+    ListNode d2 = new ListNode(-1);
+    ListNode c1 = d1, c2 = d2;
+    
+    int l = 0;
+    while (head != null) {
+        l++;
+        if (l % 2 == 0) {
+            c2.next = head;
+            c2 = c2.next;
+        } else {
+            c1.next = head;
+            c1 = c1.next;
+        }
+        head = head.next;
+    }
+    
+    c1.next = d2.next;
+    c2.next = null; // !!!!!!!!!!!!!!!!!!!!!!!!!
+    return d1.next;
+}
+```
