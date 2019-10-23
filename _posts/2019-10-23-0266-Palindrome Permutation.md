@@ -22,3 +22,26 @@ keywords: ['Hash Table', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+65% 100%
+```java
+public boolean canPermutePalindrome(String s) {
+    // have at most 1 single char
+    Map<Character, Integer> map = new HashMap<>();
+    for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (map.containsKey(c)) {
+            map.put(c, map.get(c) + 1);
+        } else {
+            map.put(c, 1);
+        }
+    }
+    
+    int count = 0;
+    for (Integer i: map.values()) {
+        if (i % 2 != 0) {
+            count++;
+        }
+    }
+    return count <= 1;
+}
+```
