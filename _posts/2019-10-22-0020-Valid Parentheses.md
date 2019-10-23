@@ -38,4 +38,31 @@ keywords: ['String', 'Stack', 'Leetcode', 'Easy']
 </pre>
 </div></div>
 
-### Solution
+### Solution 1
+Use a stack to trace left parentheses
+```java
+public boolean isValid(String s) {
+    Map<Character, Character> mappings = new HashMap<Character, Character>();
+    mappings.put(')', '(');
+    mappings.put('}', '{');
+    mappings.put(']', '[');
+    
+    if (s == null || s.length() == 0) return true;
+    if (s.length() % 2 != 0) return false;
+    
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (mappings.containsKey(c)) {
+            char top = stack.isEmpty() ? '#' : stack.pop();
+            if (top != mappings.get(c)) {
+                return false;
+            }    
+        } else {
+            stack.push(c);
+        }
+        
+    }
+    return stack.isEmpty();
+}
+```
