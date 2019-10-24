@@ -39,6 +39,7 @@ keywords: ['总结']
     StringBuilder s -> s.toString()
 
     String s -> new StringBuilder(s)
+10. 区分 Substring(3) 和 Subsequence(516)
 
 # Map
 1. `map.keySet() map.values() map.enttrySet()`: 循环map

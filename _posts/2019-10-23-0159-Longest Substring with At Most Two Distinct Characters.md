@@ -22,3 +22,33 @@ keywords: ['Hash Table', 'Two Pointers', 'String', 'Sliding Window', 'Leetcode',
 </pre></div></div>
 
 ### Solution
+Refer to 3. Longest Substring Without Repeating Characters
+```java
+public int lengthOfLongestSubstringTwoDistinct(String s) {
+    int n = s.length();
+    if (n < 3) return n;
+    
+    int left = 0;
+    int right = 0;
+    // hashmap character -> its rightmost position 
+    Map<Character, Integer> map = new HashMap<>();
+    int max_len = 2;
+    
+    while (right < n) {
+        if (map.size() < 3) {
+            map.put(s.charAt(right), right);
+            right++;
+        }
+        
+        // then shrink left
+        if (map.size() == 3) {
+            int del_idx = Collections.min(map.values());
+            map.remove(s.charAt(del_idx));
+            left = del_idx + 1;
+        }
+        
+        max_len = Math.max(max_len, right - left);
+    }
+    return max_len;
+}
+```
