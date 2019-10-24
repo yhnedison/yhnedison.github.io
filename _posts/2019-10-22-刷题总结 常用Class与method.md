@@ -45,3 +45,37 @@ keywords: ['总结']
 1. `map.keySet() map.values() map.enttrySet()`: 循环map
 2. `Iterator<Map.Entry<String, String>> itr = gfg.entrySet().iterator(); ` 用 iterator 循环 map
    `while(itr.hasNext()) `
+
+# Comparator
+>  lambda expressions implement the only abstract function and therefore implement functional interfaces
+> 
+对比手动Comparator 与 Lambda function
+
+```java
+// Old way
+Comparator<String> myComp = new Comparator<String>(){
+    @Override
+    public int compare(String s1, String s2) {
+        // customized sorting, return -1 to put s1 before
+    }
+};
+Arrays.sort(logs, myComp);
+
+// Lambda way
+Arrays.sort(logs, (s1, s2) -> {
+    // the same customized sorting    
+});
+```
+
+# Stack, Deque, ArrayDeque, LinkedList
+`Deque<String> stack = new ArrayDeque<>();` check [here](https://www.techiedelight.com/iterate-over-deque-java-forward-backward/)
+
+`stack.iterator()` will iterate top to bottom
+
+`stack.descendingIterator()` will iterate bottom to top (the nature order)
+
+
+
+
+# Regular Expression (Regex)
+check [Here](https://www.vogella.com/tutorials/JavaRegularExpressions/article.html#common-matching-symbols)
