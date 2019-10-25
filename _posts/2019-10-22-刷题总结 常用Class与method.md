@@ -5,7 +5,7 @@ category: [Leetcode]
 description: 
 keywords: ['总结']
 ---
-# String Character
+# String Character char
 1. `str.split(" ")`:  按照空格将字符串进行划分，得到字符串数组
 
 注：这里使用的是正则表达式，当要将一片空格分开，可以采用str.split("\\s+")或者str.split(" +")
@@ -26,12 +26,6 @@ keywords: ['总结']
 
     ```public String replaceAll(String regex, String replacement)```
 
-    其中第一个参数是一个正则表达式，表示替换和regex中相匹配的所有字符串。
-
-    区别于replace(),这个方法中传入的两个就是普通的字符串
-
-    ```public String replace(char oldChar,char newChar)```
-
 8. Arrays工具类：将数组转成集合List需要借助Arrays工具类 `Arrays.asList()`. This method acts as bridge between array-based and collection-based APIs, in combination with `Collection.toArray()`.
 
 9.  reverse()方法是StringBuilder的，不是String
@@ -40,6 +34,19 @@ keywords: ['总结']
 
     String s -> new StringBuilder(s)
 10. 区分 Substring(3) 和 Subsequence(516)
+11. 常用 Character 方法， 判断char
+```
+Character.isLetter()
+Character.isDigit()
+Character.isLetterOrDigit()
+Character.isLowerCase()
+Character.isUpperCase()
+Character.isSpace()
+Character.isWhitespace()
+Character.getNumericValue() // parse char '123' to 123
+```
+12. `String.valueOf()` 将其他类型转为String， 包括 `boolean, char, char[], int, long, float, double, Object`
+13. `Integer.parseInt()` 转化为int， ``
 
 # Map
 1. `map.keySet() map.values() map.enttrySet()`: 循环map

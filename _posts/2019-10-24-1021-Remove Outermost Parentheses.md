@@ -53,3 +53,31 @@ After removing outer parentheses of each part, this is "" + "" = "".
 </div></div></div>
 
 ### Solution
+Refer to 20.Valid Parenthesis
+```java
+public String removeOuterParentheses(String S) {
+    Deque<Character> stack = new LinkedList<>();
+    List<String> list = new ArrayList<>();
+    int currentIndex = 0;
+    for (int i = 0; i < S.length(); i++) {
+        char c = S.charAt(i);
+        if (c == '(') {
+            stack.push(c);
+        } else if (c == ')' && !stack.isEmpty()) {
+            stack.pop();
+        }
+        
+        if (stack.isEmpty()) {
+            // found a primitive
+            list.add(S.substring(currentIndex, i + 1));
+            currentIndex = i + 1;
+        }
+    }
+    
+    String result = "";
+    for (String s: list) {
+        result += s.substring(1, s.length() - 1);
+    }
+    return result;
+}
+```
