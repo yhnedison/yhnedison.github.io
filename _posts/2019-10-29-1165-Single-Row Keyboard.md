@@ -34,3 +34,36 @@ Total time = 2 + 1 + 1 = 4.
 </div></div>
 
 ### Solution
+For alphabatic characters, we can use array instead of Map to store data
+```java
+//use array
+public int calculateTime(String keyboard, String word) {
+    int[] index = new int[26];
+    for (int i = 0; i < keyboard.length(); i++) {
+        index[keyboard.charAt(i) - 'a'] = i;
+    }
+    
+    int pre = 0;
+    int result = 0;
+    for (int i = 0; i < word.length(); i++) {
+        result += Math.abs(pre - index[word.charAt(i) - 'a']);
+        pre = index[word.charAt(i) - 'a'];
+        System.out.println(result);
+    }
+    return result;
+}
+
+//15% 100%
+public int calculateTime(String keyboard, String word) {
+    Map<Character, Integer> map = new HashMap<>();
+    for (int i = 0; i < keyboard.length(); i++) {
+        map.put(keyboard.charAt(i), i);
+    }
+    
+    int result = 0;
+    for (int i = 1; i < word.length(); i++) {
+        result += Math.abs(map.get(word.charAt(i-1)) - map.get(word.charAt(i)));
+    }
+    return result + map.get(word.charAt(0));
+}
+```

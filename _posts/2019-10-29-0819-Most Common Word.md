@@ -38,3 +38,23 @@ and that "hit" isn't the answer even though it occurs more because it is banned.
 </div></div>
 
 ### Solution
+```java
+public String mostCommonWord(String paragraph, String[] banned) {
+    Set<String> set = new HashSet(Arrays.asList(banned));
+    Map<String, Integer> map = new HashMap<>();
+    String[] words = paragraph.replaceAll("\\W+", " ").toLowerCase().split("\\s+");
+    int max = 0;
+    String result = "";
+    for (String w: words) {
+        if (!set.contains(w)) {
+            int currentCount = map.getOrDefault(w, 0) + 1;
+            map.put(w, currentCount);
+            if (currentCount > max) {
+                max = currentCount;
+                result = w;
+            }
+        }
+    }
+    return result;
+}
+```

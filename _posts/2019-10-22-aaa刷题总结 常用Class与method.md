@@ -48,6 +48,10 @@ Character.getNumericValue() // parse char '123' to 123
 12. `String.valueOf()` 将其他类型转为String， 包括 `boolean, char, char[], int, long, float, double, Object`
 13. `Integer.parseInt()` 转化为int， ``
 
+# Regex 
+To match a dit ".", the string of regex should be "\\."
+If you want the dot or other characters with a special meaning in regexes to be a normal character, you have to escape it with a backslash. Since regexes in Java are normal Java strings, you need to escape the backslash itself, so you need two backslashes e.g. \\.
+
 # Map
 1. `map.keySet() map.values() map.enttrySet()`: 循环map
 2. `Iterator<Map.Entry<String, String>> itr = gfg.entrySet().iterator(); ` 用 iterator 循环 map

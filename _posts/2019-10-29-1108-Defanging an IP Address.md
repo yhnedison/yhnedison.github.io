@@ -26,3 +26,13 @@ keywords: ['String', 'Leetcode', 'Easy']
 </ul></div></div>
 
 ### Solution
+```java
+public String defangIPaddr(String address) {
+    return address.replaceAll("[.]", "[.]");
+}
+
+// OR
+public String defangIPaddr(String address) {
+    return address.replace("", "[.]");
+}
+```
