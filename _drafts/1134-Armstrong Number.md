@@ -32,3 +32,30 @@ keywords: ['Math', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+```java
+// To traverse integer, convert to string
+public boolean isArmstrong(int N) {
+    String str = String.valueOf(N);
+    int n = str.length();
+    int curr = 0;
+    for(char c : str.toCharArray()) {
+        curr += (int) Math.pow(c-'0', n);
+    }
+    return curr == N;
+}
+
+// normal mathematical way
+public boolean isArmstrong(int N) {
+    int sum = 0;
+    int curr = N;
+    int l = String.valueOf(curr).length();
+    while (curr != 0) {
+        int quotient = curr / 10;
+        int remainder = curr % 10;
+        sum += Math.pow(remainder, l);
+        curr = quotient;
+    }
+    return N == sum;
+}
+```
+

@@ -37,3 +37,27 @@ keywords: ['String', 'Greedy', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+```java
+public int balancedStringSplit(String s) {
+    // Traverse from beginning, whenever we find a balanced substring, cut it off
+    if (s == null || s.length() == 0) return 0;
+    
+    int countL = 0, countR = 0, i = 1, result = 0;
+    if (s.charAt(0) == 'L') countL++;
+    else countR++;
+    while (i < s.length()) {
+        if (s.charAt(i) == 'L') {
+            countL++;
+        } else {
+            countR++; 
+        }
+
+        if (countL == countR) {
+            result++;
+        }
+        
+        i++;
+    }
+    return result;
+}
+```

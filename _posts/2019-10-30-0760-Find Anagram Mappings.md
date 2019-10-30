@@ -35,3 +35,18 @@ and so on.
 </ol><p></p></div></div>
 
 ### Solution
+```java
+public int[] anagramMappings(int[] A, int[] B) {
+    Map<Integer, Integer> map = new HashMap<>();
+    int[] result = new int[A.length];
+    for (int i = 0; i < B.length; i++) {
+        map.put(B[i], i);
+    }
+    
+    int i = 0;
+    for (int a: A) {
+        result[i++] = map.get(a);
+    }
+    return result;
+}
+```

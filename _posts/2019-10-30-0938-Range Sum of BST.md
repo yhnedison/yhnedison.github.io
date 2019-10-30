@@ -32,3 +32,46 @@ keywords: ['Tree', 'Recursion', 'Leetcode', 'Easy']
 </div></div></div>
 
 ### Solution
+```java
+//Recursive
+public int rangeSumBST(TreeNode root, int L, int R) {
+    if (root == null) return 0;
+    int sum = 0;
+    if (root.val >= L && root.val <= R) {
+        sum += root.val; //preorder
+    }
+    if (root.val > L) {
+        sum += rangeSumBST(root.left, L, R);   
+    }
+    if (root.val < R) {
+        sum += rangeSumBST(root.right, L, R);
+    }
+    return sum;
+}
+
+// Iterative
+public int rangeSumBST(TreeNode root, int L, int R) {
+    if (root == null) return 0;
+    
+    int sum = 0;
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
+    
+    while (!stack.isEmpty()) {
+        TreeNode node = stack.pop();
+        if (node == null) continue;
+        if (node.val >= L && node.val <= R) {
+            sum += node.val;
+        }
+        if (node.val > L) {
+            // left is possible
+            stack.push(node.left);
+        }
+        if (node.val < R) {
+            // right is possible
+            stack.push(node.right);
+        }
+    }
+    return sum;
+}
+```

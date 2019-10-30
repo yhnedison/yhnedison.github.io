@@ -51,7 +51,7 @@ class Solution {
 
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        // iterative dfs using stack
+        // double loop
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
