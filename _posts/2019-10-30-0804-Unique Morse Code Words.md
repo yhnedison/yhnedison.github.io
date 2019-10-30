@@ -35,3 +35,17 @@ There are 2 different transformations, "--...-." and "--...--.".
 </div></div>
 
 ### Solution
+```java
+public int uniqueMorseRepresentations(String[] words) {
+    String[] array = new String[] {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    Set<String> set = new HashSet<>();
+    for (String w: words) {
+        StringBuilder code = new StringBuilder();
+        for (char c: w.toCharArray()) {
+            code.append(array[c - 'a']);
+        }
+        set.add(code.toString());
+    }
+    return set.size();
+}
+```

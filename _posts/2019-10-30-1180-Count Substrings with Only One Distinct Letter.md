@@ -34,3 +34,23 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 </div></div>
 
 ### Solution
+Separate by continuous substring, with lenght a1, a2, a3...
+
+$result = f(a1) + f(a2) + f(a3) +...$ where $f(x) = x(x-1)/2$
+```java
+public int countLetters(String S) {
+    if (S == null || S.length() == 0) return 0;
+    int count = 1;
+    int sum = 0;
+    for (int i = 0; i < S.length() - 1; i++) {
+        if (S.charAt(i) != S.charAt(i+1)) {
+            sum += count * (count + 1) / 2;
+            count = 1;
+        } else { 
+            count++;
+        }
+    }
+    sum += count * (count + 1) / 2; // add last substring
+    return sum;
+}
+```
