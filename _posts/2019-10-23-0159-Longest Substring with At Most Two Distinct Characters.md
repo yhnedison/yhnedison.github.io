@@ -35,10 +35,10 @@ public int lengthOfLongestSubstringTwoDistinct(String s) {
     int max_len = 2;
     
     while (right < n) {
-        if (map.size() < 3) {
-            map.put(s.charAt(right), right);
-            right++;
-        }
+
+        map.put(s.charAt(right), right);
+        right++;
+
         
         // then shrink left
         if (map.size() == 3) {
