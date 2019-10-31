@@ -26,3 +26,21 @@ keywords: ['Array', 'Dynamic Programming', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+```java
+public int maxProfit(int[] prices) {
+    // One pass while maintaining two variable
+    // minPrice: currently recorded min price 
+    // maxProfit: currently recorded max profit
+    
+    int minPrice = Integer.MAX_VALUE;
+    int maxProfit = 0;
+    for (int p: prices) {
+        if (p < minPrice) {
+            minPrice = p;
+        } else if (p - minPrice > maxProfit) {
+            maxProfit = p - minPrice;
+        }
+    }
+    return maxProfit;
+}
+```
