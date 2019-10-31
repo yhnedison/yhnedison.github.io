@@ -38,20 +38,3 @@ The input numbers in binary are 0, 01, 011; which are 0, 1, and 3 in base-10.  O
 </div></div>
 
 ### Solution
-```java
-public int sumOfDigits(int[] A) {
-    int min = Integer.MAX_VALUE;
-    for (int i: A) {
-        if (i < min) min = i;
-    }
-    
-    int sum = 0;
-    char[] array = String.valueOf(min).toCharArray();
-    for (char c: array) {
-        sum += Integer.valueOf(c);
-    }
-    int result = 0;
-    if ((sum % 2) == 0) result = 1;
-    return result;
-}
-```

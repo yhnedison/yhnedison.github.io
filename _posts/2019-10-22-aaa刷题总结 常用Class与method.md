@@ -85,6 +85,10 @@ Arrays.sort(logs, (s1, s2) -> {
 
 `stack.descendingIterator()` will iterate bottom to top (the nature order)
 
+# PriorityQueue
+
+# TreeMap
+
 
 
 
