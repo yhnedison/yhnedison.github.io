@@ -27,3 +27,22 @@ Assume we are dealing with an environment which could only store integers within
 </div></div>
 
 ### Solution
+5% 5%
+```java
+public int reverse(int x) {
+    int result = 0;
+    System.out.println(Integer.MAX_VALUE);
+    System.out.println(Integer.MIN_VALUE);
+    System.out.println(-3 % 2); // -1
+    
+    while (x != 0) {
+        int pop = x % 10; // pop the last digit
+        x /= 10;
+        if (result > Integer.MAX_VALUE/10 || (result == Integer.MAX_VALUE/10 && pop > 7)) return 0;
+        if (result < Integer.MIN_VALUE/10 || (result == Integer.MIN_VALUE/10 && pop < -8)) return 0;
+        result = result * 10 + pop;
+    }
+    
+    return result;
+}
+```
