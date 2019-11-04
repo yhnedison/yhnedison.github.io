@@ -39,3 +39,51 @@ for (int i = 0; i &lt; len; i++) {
 </div></div>
 
 ### Solution
+```java
+public int removeDuplicates(int[] nums) {
+    // two pointer
+    // i point to the end of result array
+    // j is the runner
+    if (nums == null) return 0;
+    if (nums.length < 2) return nums.length;
+    
+    int i = 0; // slow runner, j is fast runner
+    for (int j = 1; j < nums.length; j++) {
+        if (nums[j] != nums[i]) {
+            i++; // increment slow runner
+            nums[i] = nums[j];
+        }
+    }
+    return i+1;
+}
+```
+
+A general solution for K
+```java
+public int removeDuplicates(int[] nums) {
+    if (nums == null) return 0;
+    if (nums.length <= 2) return nums.length;
+    // i point to the end of result array
+    // j is the runner
+    int i = 0, count = 1; 
+    for (int j = 1; j < nums.length; j++) {
+        if (nums[j] != nums[j-1]) {
+            i++;
+            nums[i] = nums[j];
+            count = 1;
+        } else {
+            // need to check previous count
+            // replace 2 with k for general solution
+            if (count < k) { 
+                i++;
+                nums[i] = nums[j];
+            }
+            count++;
+        }
+        
+        
+        
+    }
+    return i + 1;
+}
+```
