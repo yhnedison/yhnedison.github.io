@@ -72,7 +72,7 @@ public int removeDuplicates(int[] nums) {
             nums[i] = nums[j];
             count = 1;
         } else {
-            // need to check previous count
+            // also swap if count hasn't exceeded limit
             // replace 2 with k for general solution
             if (count < k) { 
                 i++;

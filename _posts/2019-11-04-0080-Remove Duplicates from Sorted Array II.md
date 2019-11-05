@@ -40,6 +40,9 @@ for (int i = 0; i &lt; len; i++) {
 </div></div>
 
 ### Solution
+快慢双指针 O(n) O(1)
+
+可以推广到一般情况 allow k duplicates
 ```java
 public int removeDuplicates(int[] nums) {
     if (nums == null) return 0;
@@ -54,7 +57,7 @@ public int removeDuplicates(int[] nums) {
             nums[i] = nums[j];
             count = 1;
         } else {
-            // need to check previous count
+            // also swap if count hasn't exceeded limit
             // replace 2 with k for general solution
             if (count < 2) { 
                 i++;

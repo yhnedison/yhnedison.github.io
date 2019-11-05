@@ -42,6 +42,8 @@ for (int i = 0; i &lt; len; i++) {
 </div></div>
 
 ### Solution
+双指针two pointer，不同于2Sum夹逼，这里是快慢双指针
+i指向目标array结束后一位，j快指针遍历。每当遇到符合条件的数，放到i 并且increment i
 ```java
 public int removeElement(int[] nums, int val) {
     if (nums == null) return 0;
