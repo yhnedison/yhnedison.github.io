@@ -19,3 +19,28 @@ keywords: ['Array', 'Union Find', 'Leetcode', 'Hard']
 </div></div>
 
 ### Solution
+Dynamically build string using HashSet
+```java
+public int longestConsecutive(int[] nums) {
+    Set<Integer> set = new HashSet<>();
+    for (int num: nums) {
+        set.add(num);
+    }
+    
+    int result = 0;
+    for (int num: nums) {
+        if (!set.contains(num-1)) { // make sure it's start
+            int curr = num;
+            int currStreak = 1;
+            
+            while (set.contains(curr + 1)) {
+                curr += 1;
+                currStreak += 1;
+            }
+            result = Math.max(result, currStreak);
+        }
+    }
+    return result;
+}
+
+```
