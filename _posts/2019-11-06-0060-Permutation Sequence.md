@@ -36,3 +36,30 @@ keywords: ['Math', 'Backtracking', 'Leetcode', 'Medium']
 </div></div>
 
 ### Solution
+方法1： 暴力，next permutation 执行k次， $O(nk) O()$
+
+方法2：“康托算法”  [leetcode 解释](https://leetcode.com/problems/permutation-sequence/discuss/22507/%22Explain-like-I'm-five%22-Java-Solution-in-O(n))
+
+
+注意 k = k-1 来处理 $k\%(n-1)! = 0$ 的情况
+```java
+public String getPermutation(int n, int k) {
+    StringBuilder sb = new StringBuilder();
+    List<Integer> nums = new ArrayList<>(); // for number loop up
+    int factorial = 1;
+    for (int i = 1; i <=n; i++) {
+        factorial = factorial * i;
+        nums.add(i);
+    }
+    
+    k = k-1; // starting index of 0
+    for (int i = 0; i < n; i++) {
+        factorial = factorial/(n - i); // current grouping size
+        int index = k / factorial;     // k / factorial
+        sb.append(nums.remove(index)); // remove and append to sb
+        k = k - index * factorial; // residual, which is k % factorial
+    }
+    
+    return sb.toString();
+}
+```

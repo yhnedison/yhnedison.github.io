@@ -48,3 +48,4 @@ rotate the input matrix <strong>in-place</strong> such that it becomes:
 </div></div>
 
 ### Solution
+方法1：先垂直中线反转，再沿右斜对角线反转。 想不明白可以撕张纸比划一下
