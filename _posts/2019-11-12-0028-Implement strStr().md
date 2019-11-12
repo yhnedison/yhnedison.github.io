@@ -25,3 +25,32 @@ keywords: ['Two Pointers', 'String', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+方法1 Naive $O(M(N-M)) O(1)$ 
+```java
+public int strStr(String haystack, String needle) {
+    // Naive
+    if (haystack == null || needle == null) return -1;
+    int N = haystack.length();
+    int M = needle.length();
+    if (M == 0) return 0;
+    
+    for (int i = 0; i <= N - M; i++) {
+        int j;
+        for (j = 0; j < M; j++) {
+            if (haystack.charAt(i + j) != needle.charAt(j)) {
+                break; 
+            }    
+        }
+        
+        if (j == M) {
+            return i;
+        } 
+    }
+    return -1;
+}
+```
+
+方法2 KMP (Knuth Morris Pratt) Pattern Searching $O(n)$ 考到的概率很小
+```java
+
+```

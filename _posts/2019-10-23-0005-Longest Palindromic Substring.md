@@ -23,8 +23,9 @@ keywords: ['String', 'Dynamic Programming', 'Leetcode', 'Medium']
 
 ### Solution 1 DP
 $O(n^2)$ time $O(n^2)$ space
+动态规划
 
-只考虑图的右上半， 所以`i`递减，`j`递加
+
 - Memorization: `dp[i][j]` -> if `substring(1, j)` is parlindromic
 - State transition: 
   - if `j - i <= 2` then 
@@ -35,6 +36,7 @@ $O(n^2)$ time $O(n^2)$ space
 
     ```dp[i][j] = (s.charAt(i) == s.charAt(j)) && dp[i + 1][j - 1]```
 
+注意：只考虑图的右上半， 所以`i`递减，`j`递加
 ```java
 public String longestPalindrome(String s) {
     String result = "";
@@ -42,7 +44,7 @@ public String longestPalindrome(String s) {
     
     for (int i = s.length() - 1; i >= 0; i--) {
         for (int j = i; j < s.length(); j++) {
-            if (j - i <= 2) { // 
+            if (j - i <= 2) { // 1 2 3 directly check i and j no need to consider inside
                 dp[i][j] = (s.charAt(i) == s.charAt(j));
             } else {
                 dp[i][j] = (s.charAt(i) == s.charAt(j)) && dp[i + 1][j - 1];
