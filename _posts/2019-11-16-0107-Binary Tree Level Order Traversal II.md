@@ -31,25 +31,3 @@ return its bottom-up level order traversal as:<br/>
 <p></p></div></div>
 
 ### Solution
-类比102
-方法1：层级遍历 然后reverse
-
-方法2: DFS Recursive
-```java
-public List<List<Integer>> levelOrderBottom(TreeNode root) {
-      LinkedList<List<Integer>> result = new LinkedList<List<Integer>>();
-      helper(root, result, 0);
-      return result;
-  }
-  
-  private void helper(TreeNode root, LinkedList<List<Integer>> result, int height) {
-      if (root == null) return;
-      if (height >= result.size()) {
-          result.addFirst(new LinkedList<Integer>());
-      }
-      
-      result.get(result.size() - 1 - height).add(root.val);
-      helper(root.left, result, height + 1);
-      helper(root.right, result, height + 1);
-  }
-```
