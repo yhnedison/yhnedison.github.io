@@ -44,3 +44,43 @@ keywords: ['Hash Table', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+```java
+public boolean isAlienSorted(String[] words, String order) {
+
+    // We can also use array for hash, since char set is predefined
+    // int[] index = new int[26];
+    // for (int i = 0; i < order.length(); ++i)
+    //     index[order.charAt(i) - 'a'] = i;
+
+    
+    Map<Character, Integer> map = new HashMap<>();
+    for (int i = 0; i < order.length(); i++) {
+        char c = order.charAt(i);
+        map.put(c, i);
+    }
+    
+    for (int i = 0; i < words.length - 1; i++) {
+        String before = words[i]; 
+        String after = words[i+1];
+        
+        for (int j = 0; j < before.length(); j++) { 
+            // iterate through before
+            // if before ends, after doesn't matter
+            int index1 = map.get(before.charAt(j));
+            if (j >= after.length()) {
+                return false;
+            }
+            int index2 = map.get(after.charAt(j));
+            if (index1 < index2) {
+                break; // valid. Continue to next word;
+            } else if (index1 > index2) {
+                return false; // not valid, just return
+            } else {
+                continue; // equal, continue check next char
+            }
+            
+        }
+    }
+    return true;
+}
+```
