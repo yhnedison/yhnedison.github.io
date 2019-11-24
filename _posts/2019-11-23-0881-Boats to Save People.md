@@ -41,3 +41,30 @@ keywords: ['Two Pointers', 'Greedy', 'Leetcode', 'Medium']
 </div></div>
 
 ### Solution
+
+```java
+public List<String> subdomainVisits(String[] cpdomains) {
+    Map<String, Integer> map = new HashMap<>();
+    for (String s: cpdomains) {
+        count(s, map);
+    }
+    
+    List<String> result = new ArrayList<>();
+    for (String s: map.keySet()) {
+        result.add(String.valueOf(map.get(s)) + " " + s);
+    }
+    return result;
+}
+
+private void count(String s, Map<String, Integer> map) {
+    String[] split = s.split("\\s+");
+    int count = Integer.valueOf(split[0]);
+    String[] domains = split[1].split("\\.");
+    
+    String curr = "";
+    for (int i = domains.length - 1; i >= 0; i--) {
+        curr = domains[i] + (i == domains.length - 1 ? "" : ".") + curr;
+        map.put(curr, map.getOrDefault(curr, 0) + count);
+    }
+}
+```

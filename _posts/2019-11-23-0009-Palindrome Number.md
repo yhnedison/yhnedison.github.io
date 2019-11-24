@@ -29,3 +29,17 @@ keywords: ['Math', 'Leetcode', 'Easy']
 </div></div>
 
 ### Solution
+方法1: Naive way O(n) time O(n) space
+```java
+public boolean isPalindrome(int x) {
+    String s = String.valueOf(x);
+    int i = 0, j = s.length() - 1;
+    while (i < j) {
+        if (s.charAt(i++) != s.charAt(j--)) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
