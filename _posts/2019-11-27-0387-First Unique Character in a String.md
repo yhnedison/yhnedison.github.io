@@ -25,3 +25,26 @@ return 2.
 </p></div></div>
 
 ### Solution
+方法1： 线性扫描，Naive $O(n) time O(1) space$
+```java
+public int firstUniqChar(String s) {
+    Map<Character, Integer> map = new HashMap<>();
+    for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (!map.containsKey(c)) {
+            map.put(c, i); // mark index
+        } else {
+            map.put(c, -1);// repeat, mark as -1
+        }
+    }
+    
+    // find the smallest index >= 0
+    int min = Integer.MAX_VALUE;
+    for (Integer x: map.values()) {
+        if (x >= 0 && x < min) {
+            min = x;
+        }
+    }
+    return min == Integer.MAX_VALUE ? -1 : min;
+}
+```
