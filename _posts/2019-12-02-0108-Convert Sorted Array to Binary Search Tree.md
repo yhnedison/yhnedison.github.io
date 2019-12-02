@@ -25,3 +25,21 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 </div></div>
 
 ### Solution
+方法1： DFS 答案不唯一，当偶数个时取左还是取右 `O(n) space O(n) time`
+```java
+public TreeNode sortedArrayToBST(int[] nums) {
+    return helper(nums, 0, nums.length - 1);
+}
+
+private TreeNode helper(int[] nums, int l, int r) {
+    if (l > r) {
+        return null;
+    }
+    
+    int m = l + (r - l) / 2;
+    TreeNode root = new TreeNode(nums[m]);
+    root.left = helper(nums, l, m - 1);
+    root.right = helper(nums, m + 1, r);
+    return root;
+}
+```
