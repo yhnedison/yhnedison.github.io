@@ -61,3 +61,24 @@ Notice each digit has it's own entry in the array.
 </div></div>
 
 ### Solution
+`O(n) O(1) 97% 6%`
+```java
+public int compress(char[] chars) {
+    int i = 0, end = 0;
+    while (i < chars.length) {
+        int count = 0;
+        char curr = chars[i];
+        while (i < chars.length && chars[i] ==curr) {
+            count++;
+            i++;
+        }
+        chars[end++] = curr;
+        if (count != 1) {
+            for (char c: Integer.toString(count).toCharArray()) {
+                chars[end++] = c;
+            }
+        }
+    }
+    return end;
+}
+```
