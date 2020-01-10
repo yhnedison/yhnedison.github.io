@@ -114,6 +114,8 @@ class NumArray {
 ```
 
 方法2： Array实现Segment Tree。 `71% 100%`
+
+Index `i` children are `2i` and `2i + 1`
 ```java
 class NumArray {
     private int[] tree;
@@ -169,3 +171,5 @@ class NumArray {
     }
 }
 ```
+
+方法3： 可以用
