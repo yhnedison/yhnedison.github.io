@@ -36,3 +36,30 @@ keywords: ['Array', 'Backtracking', 'Leetcode', 'Medium']
 </div></div>
 
 ### Solution
+backtracking 模板 `67% 100%`
+```java
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        backtrack(result, new ArrayList<Integer>(), candidates, target, 0);
+        return result;
+    }
+    
+    private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] nums, int remain, int start) {
+        //结束条件 end condition
+        if (remain < 0) {
+            return;
+        } else if (remain == 0) {
+            result.add(new ArrayList<>(temp));
+            return;
+        }
+        
+        for (int i = start; i < nums.length; i++) {
+            temp.add(nums[i]); // 选择
+            backtrack(result, temp, nums, remain - nums[i], i); // not i+1 because we can reuse same num
+            temp.remove(temp.size() - 1); // 取消选择
+        }
+    }
+}
+```
