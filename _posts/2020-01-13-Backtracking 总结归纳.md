@@ -387,3 +387,54 @@ void backtrack(List<String> result, StringBuilder temp, String digits, String[] 
     }
 }
 ```
+
+## 93 Restore IP Addresses
+
+> Given a string containing only digits, restore it by returning all possible valid IP address combinations.
+
+```
+Input: "25525511135"
+Output: ["255.255.11.135", "255.255.111.35"]
+```
+
+```java
+// 24% 30% 
+public List<String> restoreIpAddresses(String s) {
+    List<String> result = new ArrayList<>();
+    backtrack(result, new ArrayList<String>(), s, 0, 0);
+    return result;
+}
+
+private void backtrack(List<String> result, List<String> temp, String s, int count, int index) {
+    // 结束条件
+    if (index > s.length() || count > 4) { ；// 提前结束，剪枝
+        return; 
+    }  else if (index == s.length() && count == 4) { // 唯一result.add 结束条件
+        result.add(String.join(".", temp));
+    }
+        
+    for (int i = 1; i <= 3 && index + i <= s.length(); i++) {
+        String curr = s.substring(index, index + i);
+        if (isValid(curr)) { //剪枝
+            temp.add(curr);
+            backtrack(result, temp, s, count + 1, index + i);
+            temp.remove(temp.size() - 1);
+        }
+    }
+}
+
+private boolean isValid(String s) {
+    //1. less or equal to 255      
+    //2. the first character could be '0' only if the segment is equal to '0'
+    int l = s.length();
+    if (l > 3) {
+        return false;
+    } else {
+        if (s.charAt(0) == '0') {
+            return l == 1;
+        } else {
+            return Integer.valueOf(s) <= 255;
+        }
+    }
+}
+```
