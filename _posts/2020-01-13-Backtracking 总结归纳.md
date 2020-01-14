@@ -37,7 +37,9 @@ def backtrack(路径, 选择列表):
 
 # 例子
 ## [46. Permutations](https://leetcode.com/problems/permutations/) 排列
->Given a collection of distinct integers, return all possible permutations. 注意distinct
+
+> Given a collection of distinct integers, return all possible permutations. 注意distinct
+
 ```java
 public List<List<Integer>> permute(int[] nums) {
     List<List<Integer>> result  = new LinkedList<>();
@@ -62,10 +64,9 @@ private void backtrack(List<List<Integer>> result, LinkedList<Integer> temp, int
         track.removeLast(); // 取消选择
     }
 }
-
-
 ```
 ## [47.Permutations II](https://leetcode.com/problems/permutations-ii/) 排列
+
 > Given a collection of numbers that might contain duplicates, return all possible unique permutations. 注意有重复
 > ```
 > Input: [1,1,2]
