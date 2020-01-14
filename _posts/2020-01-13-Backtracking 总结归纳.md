@@ -36,7 +36,9 @@ def backtrack(路径, 选择列表):
 2. 有重复元素时，先sort(), 剪枝时保证重复元素按顺序获取，保证没有重复结果
 
 # 例子
-## [46. Permutations](https://leetcode.com/problems/permutations/) 排列
+## 46. Permutations 排列
+
+[leetcode链接](https://leetcode.com/problems/permutations/)
 
 > Given a collection of distinct integers, return all possible permutations. 注意distinct
 
@@ -65,7 +67,8 @@ private void backtrack(List<List<Integer>> result, LinkedList<Integer> temp, int
     }
 }
 ```
-## [47.Permutations II](https://leetcode.com/problems/permutations-ii/) 排列
+## 47.Permutations II 排列
+[leetcode链接](https://leetcode.com/problems/permutations-ii/)
 
 > Given a collection of numbers that might contain duplicates, return all possible unique permutations. 注意有重复
 > ```
@@ -106,7 +109,8 @@ private void backtrack(int[] nums, List<Integer> temp, List<List<Integer>> resul
     }
 }
 ```
-## [39. Combination Sum](https://leetcode.com/problems/combination-sum/) 组合
+## 39. Combination Sum 组合
+[leetcode链接](https://leetcode.com/problems/combination-sum/)
 
 >Given a set of candidate numbers (candidates) (***without duplicates***) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target. 无重复
 >
@@ -141,7 +145,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 }
 ```
 
-## [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) 组合
+## 40. Combination Sum II 组合
+[leetcode链接](https://leetcode.com/problems/combination-sum-ii/)
 
 > Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target. There may be ***duplicate*** numbers. 有重复
 >
@@ -178,7 +183,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 }
 ```
 
-## [216. Combination Sum III](https://leetcode.com/problems/combination-sum-iii/) k组合
+## 216. Combination Sum III k组合
+[leetcode链接](https://leetcode.com/problems/combination-sum-iii/)
 
 需要额外满足条件 k-combinations
 
@@ -207,7 +213,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 }
 ```
 
-## [377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/) 
+## 377. Combination Sum IV
+[leetcode链接](https://leetcode.com/problems/combination-sum-iv/) 
 
 叫组合，但实际求排列。用backtrack会超时，需要[DP](https://www.cnblogs.com/grandyang/p/5705750.html)
 
@@ -239,7 +246,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 ```
 
 
-## [78. Subsets](https://leetcode.com/problems/subsets/) 组合的一种
+## 78. Subsets 组合的一种
+[leetcode链接](https://leetcode.com/problems/subsets/)
 
 > Given a set of distinct integers, nums, return all possible subsets (the power set).
 >
@@ -265,7 +273,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
     }
 }
 ```
-## [90. Subsets II](https://leetcode.com/problems/subsets-ii/)
+## 90. Subsets II
+[leetcode链接](https://leetcode.com/problems/subsets-ii/)
 
 > Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
 >
@@ -307,7 +316,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
     }
 }
 ```
-## [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
+## 131. Palindrome Partitioning
+[leetcode链接](https://leetcode.com/problems/palindrome-partitioning/)
 
 ```java
     public List<List<String>> partition(String s) {
@@ -344,7 +354,8 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
     }
 ```
 
-## [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+## 17. Letter Combinations of a Phone Number
+[leetcode链接](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
 回顾backtracking三要素：路径，选择列表， 结束条件
 
