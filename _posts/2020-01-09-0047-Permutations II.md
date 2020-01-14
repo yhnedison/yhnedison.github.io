@@ -24,32 +24,30 @@ keywords: ['Backtracking', 'Leetcode', 'Medium']
 ### Solution
 标准的backtracking 模板
 ```java
-class Solution {
-    public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> result = new LinkedList<>();
-        Arrays.sort(nums);
-        backtrack(nums, new LinkedList<>(), result, new boolean[nums.length]);
-        return result;
+public List<List<Integer>> permuteUnique(int[] nums) {
+    List<List<Integer>> result = new LinkedList<>();
+    Arrays.sort(nums);
+    backtrack(nums, new LinkedList<>(), result, new boolean[nums.length]);
+    return result;
+}
+
+private void backtrack(int[] nums, List<Integer> temp, List<List<Integer>> result, boolean[] used) {
+    if (temp.size() == nums.length) {
+        result.add(new ArrayList<>(temp));
+        return;
     }
-    
-    private void backtrack(int[] nums, List<Integer> temp, List<List<Integer>> result, boolean[] used) {
-        if (temp.size() == nums.length) {
-            result.add(new ArrayList<>(temp));
-            return;
+    for (int i = 0; i < nums.length; i++) {
+        //剪枝 after sort only use first appearance
+        if (used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1])) { 
+            continue;
         }
-        for (int i = 0; i < nums.length; i++) {
-            //剪枝 after sort only use first appearance
-            if (used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1])) { 
-                continue;
-            }
-            used[i] = true;
-            temp.add(nums[i]);
-            
-            backtrack(nums, temp, result, used);
-            
-            used[i] = false;
-            temp.remove(temp.size() - 1);
-        }
+        used[i] = true;
+        temp.add(nums[i]);
+        
+        backtrack(nums, temp, result, used);
+        
+        used[i] = false;
+        temp.remove(temp.size() - 1);
     }
 }
 ```
