@@ -107,6 +107,7 @@ private void backtrack(int[] nums, List<Integer> temp, List<List<Integer>> resul
 }
 ```
 ## [39. Combination Sum](https://leetcode.com/problems/combination-sum/) 组合
+
 >Given a set of candidate numbers (candidates) (***without duplicates***) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target. 无重复
 >
 >The same ***repeated*** number may be chosen from candidates unlimited number of times. 可用多次
@@ -114,6 +115,7 @@ private void backtrack(int[] nums, List<Integer> temp, List<List<Integer>> resul
 注意：
 1. 因为是conbination， 所以每次从start 开始，避免重复组合
 2. 因为元素可以重复使用，所以递归时传入 i 而非 i + 1
+
 ```java
 public List<List<Integer>> combinationSum(int[] candidates, int target) {
     List<List<Integer>> result = new ArrayList<>();
@@ -138,12 +140,15 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
     }
 }
 ```
+
 ## [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) 组合
+
 > Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target. There may be ***duplicate*** numbers. 有重复
 >
 > Each number in candidates may only be used ***once*** in the combination. 只能用一次
 
 与39的区别在于，39是无重复元素能重复使用，本题为有重复元素不能重复使用
+
 ```java
 public List<List<Integer>> combinationSum2(int[] candidates, int target) {
     List<List<Integer>> result = new ArrayList<>();
@@ -174,7 +179,9 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 ```
 
 ## [216. Combination Sum III](https://leetcode.com/problems/combination-sum-iii/) k组合
+
 需要额外满足条件 k-combinations
+
 ```java
 public List<List<Integer>> combinationSum3(int k, int n) {
     int[] nums = {1,2,3,4,5,6,7,8,9};
@@ -233,6 +240,7 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 
 
 ## [78. Subsets](https://leetcode.com/problems/subsets/) 组合的一种
+
 > Given a set of distinct integers, nums, return all possible subsets (the power set).
 >
 > Note: The solution set must not contain duplicate subsets.
@@ -300,6 +308,7 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 }
 ```
 ## [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
+
 ```java
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();
@@ -336,9 +345,11 @@ private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] num
 ```
 
 ## [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
 回顾backtracking三要素：路径，选择列表， 结束条件
 
 这里每一层的选择列表不同
+
 ```java
 public List<String> letterCombinations(String digits) {
     String[] mapping = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz",};
