@@ -438,3 +438,36 @@ private boolean isValid(String s) {
     }
 }
 ```
+
+## 22. Generate Parentheses
+
+> Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+这一题选择列表不需要循环，因为只有两个选项：加（ 或者加 ）。加左括号条件是l剩余数大于0， 加右括号条件是剩余数大于0且大于左括号剩余数。
+
+```java
+// 96% 21%
+public List<String> generateParenthesis(int n) {
+    List<String> result = new ArrayList<>();
+    backtrack(result, new StringBuilder(), n, n);
+    return result;
+}
+
+private void backtrack(List<String> result, StringBuilder temp, int l, int r) {
+    if (l == 0 && r == 0) {
+        result.add(temp.toString());
+        return;
+    }
+    
+    if (l > 0) {
+        temp.append("(");
+        backtrack(result, temp, l - 1, r);
+        temp.deleteCharAt(temp.length() - 1);
+    }
+    if (r > l && r > 0) {
+        temp.append(")");
+        backtrack(result, temp, l, r - 1);
+        temp.deleteCharAt(temp.length() - 1);
+    }
+}
+```
