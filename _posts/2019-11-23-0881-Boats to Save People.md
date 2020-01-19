@@ -42,6 +42,7 @@ keywords: ['Two Pointers', 'Greedy', 'Leetcode', 'Medium']
 
 ### Solution
 
+
 ```java
 public List<String> subdomainVisits(String[] cpdomains) {
     Map<String, Integer> map = new HashMap<>();
