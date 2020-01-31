@@ -443,7 +443,7 @@ private boolean isValid(String s) {
 
 > Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
-这一题选择列表不需要循环，因为只有两个选项：加（ 或者加 ）。加左括号条件是l剩余数大于0， 加右括号条件是剩余数大于0且大于左括号剩余数。
+这一题选择列表不需要循环，因为只有两个选项：加（ 或者加 ）。加左括号条件是l剩余数大于0， 加右括号条件是r剩余数大于0且大于左括号剩余数。
 
 ```java
 // 96% 21%
