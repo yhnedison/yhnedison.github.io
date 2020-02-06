@@ -42,3 +42,33 @@ Note that (for example) S.next(75) returned 4, because the last 4 prices
 </div></div>
 
 ### Solution
+
+Monotonic Stack， time O(1) for each price, for each element get push and pop at most once. Space O(n) worst.
+
+```java
+class StockSpanner {
+    private Stack<Integer> prices;
+    private Stack<Integer> spans;
+    public StockSpanner() {
+        prices = new Stack<>();
+        spans = new Stack<>();
+    }
+    
+    public int next(int price) {
+        int span = 1; // current element span is always 1
+        while (!prices.isEmpty() && price >= prices.peek()) {
+            span += spans.pop();
+            prices.pop();
+        }
+        prices.push(price);
+        spans.push(span);
+        return span;
+    }
+}
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * StockSpanner obj = new StockSpanner();
+ * int param_1 = obj.next(price);
+ */
+```
