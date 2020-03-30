@@ -8,7 +8,7 @@ keywords: ['Rest']
 # Rest Web Services
 
 * JAX-RS(Java API for RESTful Web Services) defined in JSR311. JAX-RS只是一套接口规范，位于`javax.ws.rs`. 包含了很多Java annotation的定义
-* JAX-RS 具体实现由第三方提供，比如Sun的Jersy. 
+* JAX-RS 具体实现由第三方提供，比如Sun的Jersy. 实现包含javax.ws.rs.*, 所以不用额外提供JAX-RS
 
 ## Idempotence
 Reportable or not.
