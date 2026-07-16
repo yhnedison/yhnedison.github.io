@@ -1,0 +1,13 @@
+url: http://127.0.0.1:4000
+
+# GitHub Pages provides repository metadata in production. Avoid unauthenticated
+# GitHub API requests and rate-limit warnings during local development.
+plugins:
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+
+github:
+    repository_url: https://github.com/yhnedison/yhnedison.github.io
+    public_repositories: []

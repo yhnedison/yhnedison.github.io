@@ -1,14 +1,14 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
+baseurl: ""
 url: https://alex8080.com
 date_format: "ordinal"
 title: Alex Blog
 subtitle: "Hi"
 description: ""
-keywords: personal blog
-timezone: 
+keywords: [personal blog]
+timezone: America/Vancouver
 encoding: "utf-8"
 side_bar_repo_limit: 2
 
@@ -65,7 +65,6 @@ excerpt_separator: "\n\n"
 permalink: /:year/:month/:day/:title/
 plugins:
     - jekyll-github-metadata
-    - rouge
 #     - jekyll-html-pipeline
     - jekyll-paginate
     - jekyll-sitemap
@@ -78,6 +77,13 @@ collections:
         permalink: /wiki/:path/
 
 repository: yhnedison/yhnedison.github.io
+
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - mise.toml
+    - mise.lock
 
 # ---------------- #
 #      Comments    #

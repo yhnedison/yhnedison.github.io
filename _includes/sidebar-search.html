@@ -1,24 +1,12 @@
 
 <h3>Search</h3>
-<div id="site_search">
-    <input type="text" id="search_box" placeholder="LC#/Tag/Name/Keyword">
+<div id="site_search"
+     data-search-index="{{ '/assets/search_data.json' | relative_url }}"
+     data-search-limit="{{ site.simple_jekyll_search.limit | default: 10 }}">
+    <input type="search" id="search_box" placeholder="LC#/Tag/Name/Keyword" autocomplete="off">
 </div>
 
-<ul id="search_results"></ul>
+<ul id="search_results" aria-live="polite"></ul>
 
-<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/modules/sidebar-search.css">
-<script src="{{ site.url }}/assets/js/simple-jekyll-search.min.js"></script>
-<script src="{{ site.url }}/assets/js/search.js"></script>
-
-<script type="text/javascript">
-SimpleJekyllSearch({
-    searchInput: document.getElementById('search_box'),
-    resultsContainer: document.getElementById('search_results'),
-    json: '{{ site.url }}/assets/search_data.json',
-    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: {{ site.simple_jekyll_search.limit }},
-    fuzzy: false,
-    exclude: ['Welcome']
-})
-</script>
+<link rel="stylesheet" type="text/css" href="{{ '/assets/css/modules/sidebar-search.css' | relative_url }}">
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

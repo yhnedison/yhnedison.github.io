@@ -1,0 +1,21 @@
+[tools]
+ruby = "3.3.4"
+
+[settings.ruby]
+compile = false
+
+[tasks.setup]
+description = "Install the Ruby dependencies"
+run = "bundle install"
+
+[tasks.build]
+description = "Build the production site and fail on Jekyll errors"
+run = "bundle exec jekyll build --trace"
+
+[tasks.serve]
+description = "Serve published posts with live reload"
+run = "bundle exec jekyll serve --livereload --config _config.yml,_config.dev.yml"
+
+[tasks."serve-drafts"]
+description = "Serve the site with live reload and draft posts"
+run = "bundle exec jekyll serve --livereload --drafts --config _config.yml,_config.dev.yml"

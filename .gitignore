@@ -1,8 +1,11 @@
 _site/
+.bundle/
+.jekyll-cache/
+.jekyll-metadata
+vendor/bundle/
 *.swp
 *.~vsd
 \#*\#
 *~
 .DS_Store
-Gemfile.lock
 .vscode/
