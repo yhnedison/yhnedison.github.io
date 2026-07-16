@@ -10,7 +10,6 @@ description: ""
 keywords: [personal blog]
 timezone: America/Vancouver
 encoding: "utf-8"
-side_bar_repo_limit: 2
 
 # ---------------- #
 #      Author      #
