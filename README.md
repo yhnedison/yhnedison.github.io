@@ -21,6 +21,7 @@ server only when requested with `mise run serve-drafts`. Run a production
 build before publishing:
 
 ```bash
+mise run audit
 mise run build
 ```
 
@@ -43,5 +44,10 @@ keywords: [Jekyll, GitHub Pages]
 ---
 ```
 
-Changes merged to the GitHub Pages publishing branch are deployed to
-`alex8080.com`.
+Changes pushed to `master` are audited, built with `Gemfile.lock`, and deployed
+to `alex8080.com` by `.github/workflows/pages.yml`. Pull requests run the same
+audit and build checks without deploying.
+
+In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**.
+This makes production use the patched, locked dependencies rather than the
+older gems bundled into GitHub's built-in branch builder.

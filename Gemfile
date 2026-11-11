@@ -11,3 +11,7 @@ gem "rubyzip", "~> 3.4.0", require: false
 gem "faraday-retry"
 gem "webrick"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw]
+
+group :development do
+  gem "bundler-audit", "~> 0.9.3", require: false
+end

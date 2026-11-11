@@ -12,6 +12,10 @@ run = "bundle install"
 description = "Build the production site and fail on Jekyll errors"
 run = "bundle exec jekyll build --trace"
 
+[tasks.audit]
+description = "Check locked dependencies against the current Ruby advisory database"
+run = "bundle exec bundle-audit check --update"
+
 [tasks.serve]
 description = "Serve published posts with live reload"
 run = "bundle exec jekyll serve --livereload --config _config.yml,_config.dev.yml"
